@@ -1,0 +1,18 @@
+<div class="container" *ngIf="datos != null; else espera">
+  <div class="row mt-5">
+    <div class="col-md-4">
+      <img src="{{ datos.image }}" class="card-img-top" alt="..." />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ datos.name }}</h5>
+        <p class="card-text">estado: {{datos.status}}</p>
+        <p class="card-text">especie: {{datos.species}}</p>
+        <p class="card-text">genero: {{datos.gender}}</p>
+        <p class="card-text">origen: <a href="{{datos.origin.url}}">{{datos.origin.name}}</a></p>
+        <p class="card-text">location: <a href="{{datos.location.url}}">{{datos.location.name}}</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #espera>Esperando datos...</ng-template>
