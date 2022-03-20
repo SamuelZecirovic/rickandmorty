@@ -1,0 +1,19 @@
+<div class="container" *ngIf="datos != null; else espera">
+  <div class="row mt-5">
+    <div class="col-md-4">
+      <img src="{{ datos.image }}" class="card-img-top" alt="..." />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ datos.name }}</h5>
+        <button class="btn btn-danger" *ngIf="datos.status" (click)="updateStatus(false)">Dead</button>
+        <button class="btn btn-success" *ngIf="!datos.status" (click)="updateStatus(true)">Alive</button>
+        <p class="card-text">especie: {{datos.species}}</p>
+        <p class="card-text">genero: {{datos.gender}}</p>
+        <p class="card-text">origen: <a href="{{datos.origin}}">{{datos.origin}}</a></p>
+        <button class="btn btn-danger" (click)="deleteCharacter()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #espera>Esperando datos...</ng-template>
